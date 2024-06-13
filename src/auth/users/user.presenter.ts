@@ -1,7 +1,7 @@
 import { User } from '@prisma/client';
 
 export class UserPresenter {
-  constructor(readonly user: User) { }
+  constructor(readonly user: User) {}
 
   toJSON() {
     return {

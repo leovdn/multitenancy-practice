@@ -1,8 +1,8 @@
-import { Injectable } from "@nestjs/common";
-import { LoginDTO } from "./login.dto";
-import { UsersService } from "./users/users.service";
-import { JwtService } from "@nestjs/jwt";
-import * as bcrypt from "bcrypt";
+import { Injectable } from '@nestjs/common';
+import { LoginDTO } from './login.dto';
+import { UsersService } from './users/users.service';
+import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcrypt';
 @Injectable()
 export class AuthService {
   constructor(
@@ -14,7 +14,7 @@ export class AuthService {
     const user = await this.usersService.findOne(data.email);
 
     if (!user || !bcrypt.compareSync(data.password, user.password)) {
-      throw new Error("Invalid credentials");
+      throw new Error('Invalid credentials');
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

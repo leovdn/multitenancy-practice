@@ -1,9 +1,9 @@
-import { Injectable } from "@nestjs/common";
-import * as bcrypt from "bcrypt";
-import { PrismaService } from "src/prisma/prisma.service";
+import { Injectable } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
+import { PrismaService } from 'src/prisma/prisma.service';
 
-import { UserRoles } from "./dto/user-roles";
-import { CreateUserDTO } from "./dto/create-user.dto";
+import { UserRoles } from './dto/user-roles';
+import { CreateUserDTO } from './dto/create-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -36,7 +36,7 @@ export class UsersService {
   findOne(idOrEmail: number | string) {
     return this.prismaService.user.findFirst({
       where: {
-        ...(typeof idOrEmail === "number"
+        ...(typeof idOrEmail === 'number'
           ? { id: idOrEmail }
           : { email: idOrEmail }),
       },
