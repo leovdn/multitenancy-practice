@@ -1,21 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { CreateUserDTO } from './dto/create-user.dto';
 
 @Controller('users')
 export class UsersController {
-  constructor(usersService: UsersService) {
-    this.createUser()
-  }
+  constructor(private usersService: UsersService) { }
 
-  @Get()
-  getUsers() {
-    return {
-      name: 'Lev',
-      age: 18
-    }
-  }
-
-  createUser() {
-    return 'Create an user'
+  @Post()
+  create(@Body() data: CreateUserDTO) {
+    return this.usersService.create(data);
   }
 }
