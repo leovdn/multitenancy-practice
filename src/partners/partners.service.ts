@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePartnerDto } from './dto/create-partner.dto';
-import { UpdatePartnerDto } from './dto/update-partner.dto';
+// import { UpdatePartnerDto } from './dto/update-partner.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -35,11 +35,11 @@ export class PartnersService {
     return `This action returns a #${id} partner`;
   }
 
-  update(id: number, updatePartnerDto: UpdatePartnerDto) {
-    return `This action updates a #${id} partner`;
-  }
+  // update(id: number, updatePartnerDto: UpdatePartnerDto) {
+  //   return `This action updates a #${id} partner`;
+  // }
 
-  remove(id: number) {
-    return this.prismaService.partner.delete({ where: { id } });
-  }
+  // remove(id: number) {
+  //   return this.prismaService.partner.delete({ where: { id } });
+  // }
 }

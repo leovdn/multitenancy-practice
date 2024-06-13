@@ -42,8 +42,8 @@ export class PartnersController {
   //   return this.partnersService.update(+id, updatePartnerDto);
   // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.partnersService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.partnersService.remove(+id);
+  // }
 }
