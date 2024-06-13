@@ -1,13 +1,13 @@
-import { Injectable } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { Injectable } from "@nestjs/common";
+import * as bcrypt from "bcrypt";
+import { PrismaService } from "src/prisma/prisma.service";
 
-import { UserRoles } from './dto/user-roles';
-import { CreateUserDTO } from './dto/create-user.dto';
+import { UserRoles } from "./dto/user-roles";
+import { CreateUserDTO } from "./dto/create-user.dto";
 
 @Injectable()
 export class UsersService {
-  constructor(private prismaService: PrismaService) { }
+  constructor(private prismaService: PrismaService) {}
 
   createPartnerUser(data: CreateUserDTO) {
     return this.prismaService.user.create({
@@ -31,5 +31,15 @@ export class UsersService {
 
   generateHash(password: string) {
     return bcrypt.hashSync(password, 10);
+  }
+
+  findOne(idOrEmail: number | string) {
+    return this.prismaService.user.findFirst({
+      where: {
+        ...(typeof idOrEmail === "number"
+          ? { id: idOrEmail }
+          : { email: idOrEmail }),
+      },
+    });
   }
 }
