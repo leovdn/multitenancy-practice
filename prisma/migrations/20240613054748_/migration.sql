@@ -6,7 +6,7 @@ CREATE TABLE `User` (
     `password` VARCHAR(191) NOT NULL,
     `roles` JSON NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updatetAt` DATETIME(3) NOT NULL,
+    `updatedAt` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `User_email_key`(`email`),
     PRIMARY KEY (`id`)

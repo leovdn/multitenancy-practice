@@ -20,7 +20,7 @@ model User {
   password  String
   roles     Json
   createdAt DateTime @default(now())
-  updatetAt DateTime @updatedAt
+  updatedAt DateTime @updatedAt
 
   @@unique([email])
 }
